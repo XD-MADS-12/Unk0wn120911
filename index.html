@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Un0wn120911</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <h1 class="glow">Un0wn120911</h1>
+  <div class="grid">
+    <a href="base64.html" class="tool-card"><i class="fas fa-code"></i> Base64</a>
+    <a href="code_editor.html" class="tool-card"><i class="fas fa-terminal"></i> Code Editor</a>
+    <a href="redirect_checker.html" class="tool-card"><i class="fas fa-random"></i> Redirect</a>
+    <a href="link_analyzer.html" class="tool-card"><i class="fas fa-link"></i> Link Analyzer</a>
+    <a href="ip_generator.html" class="tool-card"><i class="fas fa-network-wired"></i> IP Generator</a>
+    <a href="fake_address.html" class="tool-card"><i class="fas fa-address-card"></i> Fake Address</a>
+    <a href="cc_generator.html" class="tool-card"><i class="fas fa-credit-card"></i> CC Generator</a>
+    <a href="bin_checker_api.html" class="tool-card"><i class="fas fa-database"></i> BIN Checker</a>
+    <a href="hash_identifier.html" class="tool-card"><i class="fas fa-fingerprint"></i> Hash ID</a>
+    <a href="whois_checker.html" class="tool-card"><i class="fas fa-search-location"></i> WHOIS</a>
+    <a href="dns_lookup.html" class="tool-card"><i class="fas fa-globe"></i> DNS Lookup</a>
+    <a href="sqli_scanner.html" class="tool-card"><i class="fas fa-bug"></i> SQLi</a>
+    <a href="xss_scanner.html" class="tool-card"><i class="fas fa-skull-crossbones"></i> XSS</a>
+    <a href="cors_tester.html" class="tool-card"><i class="fas fa-shield-alt"></i> CORS</a>
+    <a href="github_dorking.html" class="tool-card"><i class="fab fa-github"></i> GitHub Dorker</a>
+    <a href="http_request_builder.html" class="tool-card"><i class="fas fa-paper-plane"></i> HTTP Tool</a>
+    <a href="proxy_logger.html" class="tool-card"><i class="fas fa-route"></i> Proxy Logger</a>
+  </div>
+  <div style="text-align:center; margin-top: 20px;">
+    <p>Total Visitors: <span id="visitor-count">Loading...</span></p>
+    <a href="https://www.facebook.com/profile.php?id=61573096845761" target="_blank">
+      <i class="fab fa-facebook" style="color:#1877f2; font-size:24px;"></i>
+    </a>
+    <a href="https://youtube.com/@hydrogen_atik?si=NAfz2-R9qpXpyWwh" target="_blank">
+      <i class="fab fa-youtube" style="color:#ff0000; font-size:24px; margin-left:10px;"></i>
+    </a>
+  </div>
+  <script>
+    fetch('https://api.countapi.xyz/hit/un0wn120911/visits')
+      .then(res => res.json())
+      .then(data => document.getElementById('visitor-count').innerText = data.value);
+  </script>
+</body>
+  </html>
