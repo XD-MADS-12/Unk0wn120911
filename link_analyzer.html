@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Link Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Link Analyzer</h2>
+    <input type="text" id="url" placeholder="https://example.com"><br><br>
+    <button onclick="analyze()">Analyze</button>
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    async function analyze() {
+      const url = document.getElementById("url").value;
+      try {
+        const res = await fetch("https://corsproxy.io/?" + encodeURIComponent(url));
+        const headers = Array.from(res.headers.entries())
+          .map(([k,v]) => `${k}: ${v}`).join("\\n");
+        document.getElementById("output").textContent = `Status: ${res.status}\n` + headers;
+      } catch (e) {
+        document.getElementById("output").textContent = "Error: " + e;
+      }
+    }
+  </script>
+</body>
+</html>
