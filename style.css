@@ -1,21 +1,26 @@
 body {
-  background-color: #000;
+  background: url('https://i.ibb.co/3FFM5VJ/hacker-bg.gif') no-repeat center center fixed;
+  background-size: cover;
   color: #00ff00;
   font-family: 'Courier New', monospace;
   margin: 0;
   padding: 20px;
+  backdrop-filter: blur(3px);
 }
+
 .glow {
   animation: glow 2s ease-in-out infinite alternate;
   color: #00ff00;
   text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
 }
+
 @keyframes glow {
   from { text-shadow: 0 0 5px #00ff00; }
   to   { text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; }
 }
+
 .tool-card {
-  background: #111;
+  background: rgba(0, 0, 0, 0.7);
   padding: 1rem;
   border-radius: 10px;
   text-align: center;
@@ -23,7 +28,7 @@ body {
   transition: background 0.3s;
 }
 .tool-card:hover {
-  background-color: #222;
+  background-color: #111;
 }
 .grid {
   display: grid;
