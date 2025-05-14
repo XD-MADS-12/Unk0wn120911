@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Proxy Logger</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Burp-style Proxy Logger</h2>
+    <input type="text" id="url" placeholder="https://example.com" style="width:100%;"><br>
+    <select id="method"><option>GET</option><option>POST</option></select><br>
+    <textarea id="headers" rows="4" placeholder="JSON Headers" style="width:100%;">{}</textarea>
+    <textarea id="body" rows="4" placeholder="Body (POST only)" style="width:100%;"></textarea><br>
+    <button onclick="send()">Send</button>
+    <button onclick="clearLog()">Clear History</button>
+    <pre id="response"></pre>
+    <h3>History</h3>
+    <div id="log"></div>
+  </div>
+
+  <script>
+    let logs = JSON.parse(localStorage.getItem("proxyLogs") || "[]");
+    const logDiv = document.getElementById("log");
+
+    function updateLog() {
+      logDiv.innerHTML = "";
+      logs.forEach((log, i) => {
+        const el = document.createElement("div");
+        el.innerText = `[${log.method}] ${log.url}`;
+        el.style.borderBottom = "1px solid #333";
+        el.style.cursor = "pointer";
+        el.onclick = () => load(i);
+        logDiv.appendChild(el);
+      });
+    }
+
+    function send() {
+      const url = document.getElementById("url").value;
+      const method = document.getElementById("method").value;
+      const headers = JSON.parse(document.getElementById("headers").value);
+      const body = document.getElementById("body").value;
+
+      fetch(url, { method, headers, body: method === "POST" ? body : undefined })
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("response").textContent = data.slice(0, 2000);
+          logs.unshift({ url, method, headers, body });
+          logs = logs.slice(0, 50);
+          localStorage.setItem("proxyLogs", JSON.stringify(logs));
+          updateLog();
+        });
+    }
+
+    function load(i) {
+      const l = logs[i];
+      document.getElementById("url").value = l.url;
+      document.getElementById("method").value = l.method;
+      document.getElementById("headers").value = JSON.stringify(l.headers, null, 2);
+      document.getElementById("body").value = l.body || "";
+    }
+
+    function clearLog() {
+      logs = [];
+      localStorage.removeItem("proxyLogs");
+      updateLog();
+    }
+
+    updateLog();
+  </script>
+</body>
+</html>
