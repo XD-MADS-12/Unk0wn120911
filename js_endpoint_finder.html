@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Endpoint Extractor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h2>JavaScript Endpoint Finder</h2>
+  <textarea id="script" rows="10" placeholder="Paste JS code here..." style="width:100%;"></textarea><br>
+  <button onclick="extract()">Extract</button>
+  <pre id="output"></pre>
+</div>
+
+<script>
+function extract() {
+  const js = document.getElementById("script").value;
+  const urls = js.match(/https?:\\/\\/[\\w\\d./?=#&_:-]+/g);
+  document.getElementById("output").textContent = urls ? urls.join("\\n") : "No endpoints found.";
+}
+</script>
+</body>
+</html>
