@@ -1,42 +1,19 @@
-/* Body style without background image */
+
 body {
-  color: #00ff00;
-  font-family: 'Courier New', monospace;
   margin: 0;
-  padding: 20px;
+  font-family: 'Courier New', monospace;
+  background: #000;
+  background-image: url('https://f.top4top.io/m_34217ynqt0.mp4');
+  background-size: cover;
+  background-attachment: fixed;
+  color: #00ff00;
   backdrop-filter: blur(3px);
-  position: relative;
-  z-index: 1;
 }
 
-/* Fullscreen responsive video background */
-#background-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  pointer-events: none; /* allows clicking through video */
-}
-
-/* Mobile fallback: Use fallback image on small screens */
-@media (max-width: 768px) {
-  #background-video {
-    display: none;
-  }
-  body {
-    background: url('fallback.jpg') no-repeat center center fixed;
-    background-size: cover;
-  }
-}
-
-/* Hacker-style glow effect */
 .glow {
   animation: glow 2s ease-in-out infinite alternate;
   color: #00ff00;
-  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
 }
 
 @keyframes glow {
@@ -44,22 +21,41 @@ body {
   to   { text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; }
 }
 
-/* Tool card styling */
-.tool-card {
-  background: rgba(0, 0, 0, 0.7);
-  padding: 1rem;
-  border-radius: 10px;
-  text-align: center;
-  border: 1px solid #333;
-  transition: background 0.3s;
-}
-.tool-card:hover {
-  background-color: #111;
-}
-
-/* Grid layout */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
+  margin-top: 20px;
+}
+
+.tool-card {
+  background: rgba(0, 0, 0, 0.75);
+  color: #00ff00;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #0f0;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.tool-card:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #00ff00;
+}
+
+a {
+  text-decoration: none;
+  color: #00ff00;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+h1, h2 {
+  text-align: center;
 }
