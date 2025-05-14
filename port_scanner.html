@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Port Scanner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h2>Port Scanner (via Hackertarget)</h2>
+  <input type="text" id="host" placeholder="Enter IP or domain">
+  <button onclick="scan()">Scan</button>
+  <pre id="result"></pre>
+</div>
+
+<script>
+async function scan() {
+  const host = document.getElementById('host').value;
+  const res = await fetch(`https://api.hackertarget.com/nmap/?q=${host}`);
+  const text = await res.text();
+  document.getElementById('result').textContent = text;
+}
+</script>
+</body>
+</html>
