@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Code Editor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Live HTML/JS Code Editor</h2>
+    <textarea id="editor" rows="10" style="width:100%;" placeholder="Write HTML/JS here..."></textarea><br>
+    <button onclick="run()">Run</button>
+    <h3>Preview:</h3>
+    <iframe id="preview" style="width:100%;height:300px;border:1px solid #333;"></iframe>
+  </div>
+
+  <script>
+    function run() {
+      const code = document.getElementById('editor').value;
+      const preview = document.getElementById('preview');
+      preview.srcdoc = code;
+    }
+  </script>
+</body>
+</html>
