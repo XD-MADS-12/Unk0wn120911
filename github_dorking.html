@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GitHub Dork Tool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>GitHub Dork Helper</h2>
+    <input type="text" id="query" placeholder="e.g. password filename:.env" style="width:100%;">
+    <button onclick="gen()">Generate Dork</button>
+    <p id="output"></p>
+  </div>
+
+  <script>
+    function gen() {
+      const q = encodeURIComponent(document.getElementById("query").value);
+      const url = `https://github.com/search?q=${q}`;
+      document.getElementById("output").innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
+    }
+  </script>
+</body>
+</html>
