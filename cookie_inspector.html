@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cookie Inspector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h2>Cookie Inspector</h2>
+  <button onclick="show()">Show Cookies</button>
+  <pre id="output"></pre>
+</div>
+
+<script>
+function show() {
+  document.getElementById("output").textContent = document.cookie || "No cookies found.";
+}
+</script>
+</body>
+</html>
