@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,78 +6,8 @@
   <title>Un0wn120911</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    body {
-      color: #00ff00;
-      font-family: 'Courier New', monospace;
-      margin: 0;
-      padding: 20px;
-      backdrop-filter: blur(3px);
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Background Video */
-    #background-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    /* Mobile fallback */
-    @media (max-width: 768px) {
-      #background-video {
-        display: none;
-      }
-      body {
-        background: url('fallback.jpg') no-repeat center center fixed;
-        background-size: cover;
-      }
-    }
-
-    .glow {
-      animation: glow 2s ease-in-out infinite alternate;
-      color: #00ff00;
-      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 5px #00ff00; }
-      to   { text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; }
-    }
-
-    .tool-card {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 1rem;
-      border-radius: 10px;
-      text-align: center;
-      border: 1px solid #333;
-      transition: background 0.3s;
-    }
-    .tool-card:hover {
-      background-color: #111;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-    }
-  </style>
 </head>
 <body>
-
-  <!-- Background video -->
-  <video autoplay muted loop id="background-video" poster="fallback.jpg">
-    <source src="background.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
   <h1 class="glow">Un0wn120911</h1>
   <div class="grid">
     <!-- Standard Tools -->
@@ -110,7 +41,6 @@
     <a href="url_encoder.html" class="tool-card"><i class="fas fa-code"></i> URL Encoder/Decoder</a>
     <a href="jwt_decoder.html" class="tool-card"><i class="fas fa-key"></i> JWT Decoder</a>
   </div>
-
   <div style="text-align:center; margin-top: 20px;">
     <p>Total Visitors: <span id="visitor-count">200K</span></p>
     <a href="https://www.facebook.com/profile.php?id=61573096845761" target="_blank">
@@ -120,6 +50,5 @@
       <i class="fab fa-youtube" style="color:#ff0000; font-size:24px; margin-left:10px;"></i>
     </a>
   </div>
-
 </body>
-  </html>
+</html>
