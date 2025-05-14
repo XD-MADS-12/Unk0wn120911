@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DNS Lookup</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>DNS Lookup (via Hackertarget)</h2>
+    <input type="text" id="domain" placeholder="example.com" style="width:100%;">
+    <button onclick="lookup()">Lookup</button>
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    async function lookup() {
+      const domain = document.getElementById("domain").value;
+      const res = await fetch(`https://api.hackertarget.com/dnslookup/?q=${domain}`);
+      const text = await res.text();
+      document.getElementById("output").textContent = text;
+    }
+  </script>
+</body>
+</html>
