@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirect Checker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Redirect Checker</h2>
+    <input type="text" id="url" placeholder="https://example.com"><br><br>
+    <button onclick="check()">Check</button>
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    async function check() {
+      const url = document.getElementById("url").value;
+      try {
+        const res = await fetch("https://corsproxy.io/?" + encodeURIComponent(url), { method: "GET", redirect: "manual" });
+        const location = res.headers.get("location");
+        document.getElementById("output").textContent = `Status: ${res.status}\nLocation: ${location || "None"}`;
+      } catch (e) {
+        document.getElementById("output").textContent = "Error: " + e;
+      }
+    }
+  </script>
+</body>
+</html>
