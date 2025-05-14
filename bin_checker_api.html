@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BIN Checker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>BIN Checker By Unk0wn120911</h2>
+    <input type="text" id="bin" placeholder="Enter first 6 digits (BIN)">
+    <button onclick="check()">Check</button>
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    async function check() {
+      const bin = document.getElementById('bin').value;
+      const res = await fetch(`https://lookup.binlist.net/${bin}`);
+      const data = await res.json();
+      document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
