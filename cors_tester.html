@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CORS Tester</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>CORS Tester</h2>
+    <input type="text" id="url" placeholder="Enter API URL" style="width:100%;">
+    <button onclick="test()">Test CORS</button>
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    async function test() {
+      try {
+        const url = document.getElementById("url").value;
+        const res = await fetch(url, { method: 'GET', mode: 'cors' });
+        document.getElementById("output").textContent = "CORS allowed! Status: " + res.status;
+      } catch (e) {
+        document.getElementById("output").textContent = "Blocked by CORS policy or failed: " + e;
+      }
+    }
+  </script>
+</body>
+</html>
