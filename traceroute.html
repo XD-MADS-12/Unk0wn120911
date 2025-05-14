@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Traceroute Tool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h2>Traceroute</h2>
+  <input type="text" id="host" placeholder="Enter domain">
+  <button onclick="trace()">Run</button>
+  <pre id="result"></pre>
+</div>
+
+<script>
+async function trace() {
+  const host = document.getElementById('host').value;
+  const res = await fetch(`https://api.hackertarget.com/mtr/?q=${host}`);
+  const text = await res.text();
+  document.getElementById('result').textContent = text;
+}
+</script>
+</body>
+</html>
