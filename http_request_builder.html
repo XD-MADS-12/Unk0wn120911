@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTTP Request Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>HTTP Request Tool</h2>
+    <input id="url" placeholder="Enter URL" style="width:100%;"><br>
+    <select id="method"><option>GET</option><option>POST</option></select><br>
+    <textarea id="body" rows="4" placeholder="Body (POST only)" style="width:100%;"></textarea><br>
+    <button onclick="send()">Send</button>
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    async function send() {
+      const url = document.getElementById("url").value;
+      const method = document.getElementById("method").value;
+      const body = document.getElementById("body").value;
+      try {
+        const res = await fetch(url, {
+          method,
+          headers: { "Content-Type": "application/json" },
+          body: method === "POST" ? body : undefined
+        });
+        const text = await res.text();
+        document.getElementById("output").textContent = text.slice(0, 3000);
+      } catch (e) {
+        document.getElementById("output").textContent = "Error: " + e;
+      }
+    }
+  </script>
+</body>
+</html>
