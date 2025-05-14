@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JWT Decoder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h2>JWT Decoder</h2>
+  <textarea id="token" rows="3" placeholder="Paste JWT here..." style="width:100%;"></textarea><br>
+  <button onclick="decode()">Decode</button>
+  <pre id="output"></pre>
+</div>
+
+<script>
+function decode() {
+  try {
+    const token = document.getElementById("token").value;
+    const parts = token.split(".");
+    const decoded = atob(parts[1]);
+    document.getElementById("output").textContent = JSON.stringify(JSON.parse(decoded), null, 2);
+  } catch (e) {
+    document.getElementById("output").textContent = "Invalid JWT";
+  }
+}
+</script>
+</body>
+</html>
