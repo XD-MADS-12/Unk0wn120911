@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fake Address Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Fake Address Generator</h2>
+    <button onclick="generate()">Generate</button>
+    <p id="output"></p>
+  </div>
+
+  <script>
+    function generate() {
+      const names = ["John Doe", "Jane Smith", "Ali Khan", "Sara Patel"];
+      const streets = ["123 Elm St", "456 Maple Ave", "789 Oak Blvd", "321 Pine Rd"];
+      const cities = ["New York", "Mumbai", "London", "Tokyo"];
+      const zips = ["10001", "400001", "SW1A 1AA", "100-0001"];
+      const phones = ["+1-202-555-0101", "+91-9876543210", "+44-20-7946-0958", "+81-3-1234-5678"];
+      const i = Math.floor(Math.random() * names.length);
+      document.getElementById("output").innerHTML = `Name: ${names[i]}<br>Address: ${streets[i]}, ${cities[i]}<br>ZIP: ${zips[i]}<br>Phone: ${phones[i]}`;
+    }
+  </script>
+</body>
+</html>
