@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subdomain Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h2>Subdomain Finder</h2>
+  <input type="text" id="host" placeholder="example.com">
+  <button onclick="find()">Find Subdomains</button>
+  <pre id="result"></pre>
+</div>
+
+<script>
+async function find() {
+  const host = document.getElementById('host').value;
+  const res = await fetch(`https://api.hackertarget.com/hostsearch/?q=${host}`);
+  const text = await res.text();
+  document.getElementById('result').textContent = text;
+}
+</script>
+</body>
+</html>
