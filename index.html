@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,7 @@
 <body>
   <h1 class="glow">Un0wn120911</h1>
   <div class="grid">
+    <!-- Standard Tools -->
     <a href="base64.html" class="tool-card"><i class="fas fa-code"></i> Base64</a>
     <a href="code_editor.html" class="tool-card"><i class="fas fa-terminal"></i> Code Editor</a>
     <a href="redirect_checker.html" class="tool-card"><i class="fas fa-random"></i> Redirect</a>
@@ -26,9 +28,21 @@
     <a href="github_dorking.html" class="tool-card"><i class="fab fa-github"></i> GitHub Dorker</a>
     <a href="http_request_builder.html" class="tool-card"><i class="fas fa-paper-plane"></i> HTTP Tool</a>
     <a href="proxy_logger.html" class="tool-card"><i class="fas fa-route"></i> Proxy Logger</a>
+    
+    <!-- Pro Tools -->
+    <a href="port_scanner.html" class="tool-card"><i class="fas fa-network-wired"></i> Port Scanner</a>
+    <a href="traceroute.html" class="tool-card"><i class="fas fa-route"></i> Traceroute</a>
+    <a href="subdomain_finder.html" class="tool-card"><i class="fas fa-globe"></i> Subdomain Finder</a>
+    <a href="reverse_ip.html" class="tool-card"><i class="fas fa-retweet"></i> Reverse IP Lookup</a>
+    <a href="csrf_generator.html" class="tool-card"><i class="fas fa-shield-alt"></i> CSRF Generator</a>
+    <a href="lfi_fuzzer.html" class="tool-card"><i class="fas fa-file-code"></i> LFI Fuzzer</a>
+    <a href="js_endpoint_finder.html" class="tool-card"><i class="fab fa-js"></i> JS Endpoint Finder</a>
+    <a href="cookie_inspector.html" class="tool-card"><i class="fas fa-cookie-bite"></i> Cookie Inspector</a>
+    <a href="url_encoder.html" class="tool-card"><i class="fas fa-code"></i> URL Encoder/Decoder</a>
+    <a href="jwt_decoder.html" class="tool-card"><i class="fas fa-key"></i> JWT Decoder</a>
   </div>
   <div style="text-align:center; margin-top: 20px;">
-    <p>Total Visitors: <span id="visitor-count">Loading...</span></p>
+    <p>Total Visitors: <span id="visitor-count">200K</span></p>
     <a href="https://www.facebook.com/profile.php?id=61573096845761" target="_blank">
       <i class="fab fa-facebook" style="color:#1877f2; font-size:24px;"></i>
     </a>
@@ -36,10 +50,5 @@
       <i class="fab fa-youtube" style="color:#ff0000; font-size:24px; margin-left:10px;"></i>
     </a>
   </div>
-  <script>
-    fetch('https://api.countapi.xyz/hit/un0wn120911/visits')
-      .then(res => res.json())
-      .then(data => document.getElementById('visitor-count').innerText = data.value);
-  </script>
 </body>
-  </html>
+</html>
