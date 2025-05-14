@@ -1,0 +1,32 @@
+body {
+  background-color: #000;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 20px;
+}
+.glow {
+  animation: glow 2s ease-in-out infinite alternate;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 5px #00ff00; }
+  to   { text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; }
+}
+.tool-card {
+  background: #111;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #333;
+  transition: background 0.3s;
+}
+.tool-card:hover {
+  background-color: #222;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
