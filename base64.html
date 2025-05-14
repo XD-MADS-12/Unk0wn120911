@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Base64 Encoder/Decoder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Base64 Encoder / Decoder</h2>
+    <textarea id="input" rows="4" cols="50" placeholder="Enter text..."></textarea><br><br>
+    <button onclick="encode()">Encode</button>
+    <button onclick="decode()">Decode</button>
+    <p><b>Output:</b></p>
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    function encode() {
+      const input = document.getElementById('input').value;
+      document.getElementById('output').textContent = btoa(input);
+    }
+    function decode() {
+      const input = document.getElementById('input').value;
+      try {
+        document.getElementById('output').textContent = atob(input);
+      } catch (e) {
+        document.getElementById('output').textContent = "Invalid base64 string";
+      }
+    }
+  </script>
+</body>
+</html>
