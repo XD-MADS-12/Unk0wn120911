@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reverse IP Lookup</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h2>Reverse IP Lookup</h2>
+  <input type="text" id="ip" placeholder="Enter IP address">
+  <button onclick="lookup()">Lookup</button>
+  <pre id="result"></pre>
+</div>
+
+<script>
+async function lookup() {
+  const ip = document.getElementById('ip').value;
+  const res = await fetch(`https://api.hackertarget.com/reverseiplookup/?q=${ip}`);
+  const text = await res.text();
+  document.getElementById('result').textContent = text;
+}
+</script>
+</body>
+</html>
